@@ -1,4 +1,5 @@
 export {EvmAddress} from './evm-address'
 export {SolanaAddress} from './solana-address'
 export {AddressLike} from './types'
+export {AddressComplement} from './address-complement'
 export {createAddress} from './address.factory'

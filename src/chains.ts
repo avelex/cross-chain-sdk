@@ -14,7 +14,8 @@ export enum NetworkEnum {
     LINEA = 59144,
     SONIC = 146,
     UNICHAIN = 130,
-    SOLANA = 501
+    SOLANA = 501,
+    SUI = 101,
 }
 
 export const SupportedChains = [
@@ -30,7 +31,8 @@ export const SupportedChains = [
     NetworkEnum.LINEA,
     NetworkEnum.SONIC,
     NetworkEnum.UNICHAIN,
-    NetworkEnum.SOLANA
+    NetworkEnum.SOLANA,
+    NetworkEnum.SUI,
 ] as const
 
 type UnsupportedChain = Exclude<
@@ -39,7 +41,7 @@ type UnsupportedChain = Exclude<
 >
 
 export type SupportedChain = Exclude<NetworkEnum, UnsupportedChain>
-export type EvmChain = Exclude<SupportedChain, NetworkEnum.SOLANA>
+export type EvmChain = Exclude<SupportedChain, NetworkEnum.SOLANA | NetworkEnum.SUI>
 
 export const isSupportedChain = (chain: unknown): chain is SupportedChain =>
     SupportedChains.includes(chain as number)
